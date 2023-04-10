@@ -44,6 +44,7 @@ class DrawingBoard extends StatefulWidget {
     this.onInteractionStart,
     this.onInteractionUpdate,
     this.transformationController,
+    this.aspectRatio
   }) : super(key: key);
 
   /// 画板背景控件
@@ -89,6 +90,8 @@ class DrawingBoard extends StatefulWidget {
   /// Not working in Flutter 3.0.0 or below
   final double boardScaleFactor;
   final TransformationController? transformationController;
+  
+  final double aspectRatio;
 
   /// 默认工具项列表
   static List<DefToolItem> defaultTools(
@@ -160,7 +163,7 @@ class _DrawingBoardState extends State<DrawingBoard> {
           child: child!,
         );
       },
-      child: Center(child: AspectRatio(aspectRatio: 1, child: _buildBoard)),
+      child: Center(child: AspectRatio(aspectRatio: widget.aspectRatio, child: _buildBoard)),
     );
 
     if (widget.showDefaultActions || widget.showDefaultTools) {
