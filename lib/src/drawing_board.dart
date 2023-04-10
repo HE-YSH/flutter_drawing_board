@@ -44,7 +44,7 @@ class DrawingBoard extends StatefulWidget {
     this.onInteractionStart,
     this.onInteractionUpdate,
     this.transformationController,
-    this.aspectRatio
+    this.aspectRatio = 1
   }) : super(key: key);
 
   /// 画板背景控件
